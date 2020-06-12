@@ -1,0 +1,10 @@
+.footer-section {
+  height: 2.5em;
+  background-color: rgb(25, 160, 115);
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  font-size: medium;
+  font-weight: 600;
+  padding: 10px;
+}

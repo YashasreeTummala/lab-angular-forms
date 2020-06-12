@@ -1,0 +1,67 @@
+
+  <div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex=25>
+      <mat-card-header>
+        <mat-card-title>
+          Registration Form
+            <!--<mat-toolbar color="primary">
+              <mat-toolbar-row>
+                <span>Registration Form</span>
+              </mat-toolbar-row>
+              </mat-toolbar>-->
+        </mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <br>
+        <form [formGroup]="myForm" (ngSubmit)="submitDetails()">
+          <mat-form-field floatLable="always" appearance="fill">
+            <mat-label>Enter Your FirstName</mat-label>
+            <mat-icon matSuffix>text_rotation_none</mat-icon>
+            <input matInput placeholder="Firstname" formControlName="FirstName" />
+            <span *ngIf="myForm.get('FirstName').invalid && myForm.get('FirstName').touched">
+              <br>First name consists of minimum 6 characters.
+            </span>
+          </mat-form-field>
+
+
+          <mat-form-field floatLable="always" appearance="fill">
+            <mat-label>Enter Your LastName</mat-label>
+            <mat-icon matSuffix>text_rotation_none</mat-icon>
+            <input matInput placeholder="LastName" formControlName="LastName" />
+            <span *ngIf="myForm.get('LastName').invalid && myForm.get('LastName').touched">
+              <br> Last name consists of minimum 6 characters.
+            </span>
+          </mat-form-field>
+
+          <mat-form-field floatLable="always" appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <mat-icon matSuffix>email</mat-icon>
+            <input matInput type="email" formControlName="Email" />
+            <span *ngIf="myForm.get('Email').invalid && myForm.get('Email').touched">
+              <br> Email consists of @ & .
+            </span>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" />
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+            <mat-hint>1 UpperCase, 1LowerCase, 1Digit, 1SpecialCharacter</mat-hint>
+          </mat-form-field>
+          <br><br>
+          <mat-divider></mat-divider>
+          <br>
+          <mat-card-action>
+              <button mat-flat-button color="primary" type="submit">REGISTER</button> &nbsp;&nbsp;&nbsp;&nbsp;
+              <button mat-flat-button color="primary" type="reset">RESET</button>
+          </mat-card-action>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
